@@ -3,6 +3,9 @@ const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth");
 const studentRoute = require("./routes/student");
 const teacherRoute = require("./routes/teacher");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "./config.env" });
 const app = express();
 
 //middlewares

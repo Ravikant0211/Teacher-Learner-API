@@ -1,11 +1,8 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 
-const DB =
-  "mongodb+srv://Ravi:Ravi@cluster0.qqs91hp.mongodb.net/Clapingo?retryWrites=true&w=majority";
-
 mongoose
-  .connect(DB, {
+  .connect(process.env.DB, {
     useNewUrlParser: true,
   })
   .then(() => {

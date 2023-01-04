@@ -2,7 +2,6 @@ const Student = require("../model/student");
 const { createError } = require("../utils/createError");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "uf%jf&fkd04$j#i9";
 
 exports.register = async (req, res, next) => {
   try {
@@ -33,7 +32,7 @@ exports.login = async (req, res, next) => {
       return next(createError(400, "Invalid password or username"));
     const token = jwt.sign(
       { id: student._id, username: student.username },
-      SECRET_KEY
+      process.env.SECRET_KEY
     );
 
     const { password, ...others } = student._doc;
